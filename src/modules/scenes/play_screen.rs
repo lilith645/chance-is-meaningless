@@ -5,14 +5,29 @@ use crate::modules::scenes::SceneData;
 use crate::modules::scenes::{LoadScreen};
 use crate::cgmath::{Vector2, Vector4};
 
+use crate::modules::board::Board;
+
+use rand::prelude::ThreadRng;
+ use rand::thread_rng;
+
 pub struct PlayScreen {
   data: SceneData,
+  boards: Vec<Board>,
+  rng: ThreadRng,
 }
 
 impl PlayScreen {
   pub fn new() -> PlayScreen {
+    let mut rng = thread_rng();
+    
+    let mut board = Board::new_bottom();
+    board.mut_deck().reset_full();
+    board.mut_deck().shuffle(&mut rng);
+    
     PlayScreen {
       data: SceneData::new_default(),
+      boards: vec!(board),
+      rng,
     }
   }
 }
@@ -49,5 +64,7 @@ impl Scene for PlayScreen {
                               0.0,
                               String::from("Logo"))
     );
+    
+    self.boards[0].draw(width, height, draw_calls);
   }
 }

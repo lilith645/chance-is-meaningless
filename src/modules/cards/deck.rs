@@ -3,12 +3,14 @@ use rand::prelude::*;
 
 use crate::modules::cards::{Card, CardSuit};
 
+use maat_graphics::DrawCall;
+
 pub struct Deck {
   cards: Vec<Card>,
 }
 
 impl Deck {
-  pub fn new() -> Deck {
+  pub fn new_full() -> Deck {
     
     let mut cards = Deck::generate_suit(CardSuit::Hearts);
     cards.append(&mut Deck::generate_suit(CardSuit::Diamonds));
@@ -53,6 +55,16 @@ impl Deck {
     card
   }
   
+  pub fn reset_full(&mut self) {
+    
+    let mut cards = Deck::generate_suit(CardSuit::Hearts);
+    cards.append(&mut Deck::generate_suit(CardSuit::Diamonds));
+    cards.append(&mut Deck::generate_suit(CardSuit::Spades));
+    cards.append(&mut Deck::generate_suit(CardSuit::Clubs));
+    
+    self.cards = cards;
+  }
+  
   fn generate_suit(suit: CardSuit) -> Vec<Card> {
     let mut cards = Vec::new();
     
@@ -71,5 +83,11 @@ impl Deck {
     cards.push(Card::new().ace(&suit));
     
     cards
+  }
+  
+  pub fn draw(&self, x: f32, y: f32, draw_calls: &mut Vec<DrawCall>) {
+    for card in &self.cards {
+      card.draw(x, y, draw_calls);
+    }
   }
 }
