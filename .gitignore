@@ -30,3 +30,4 @@ Trephination.iml
 .idea
 *(copy).rs
 src/shaders/glsl/compile_shaders*
+settings.ini
