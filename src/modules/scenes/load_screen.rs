@@ -59,9 +59,39 @@ impl Scene for LoadScreen {
     let (width, height) = (dim.x as f32, dim.y as f32);
     
     if self.first_loop {
-      draw_calls.push(DrawCall::load_texture("player000".to_string()));
-      draw_calls.push(DrawCall::load_texture("platform".to_string()));
       draw_calls.push(DrawCall::load_texture("background".to_string()));
+      
+      draw_calls.push(DrawCall::load_texture("cardback".to_string()));
+      
+      // Hearts
+      draw_calls.push(DrawCall::load_texture("two_of_hearts".to_string()));
+      draw_calls.push(DrawCall::load_texture("three_of_hearts".to_string()));
+      draw_calls.push(DrawCall::load_texture("four_of_hearts".to_string()));
+      draw_calls.push(DrawCall::load_texture("five_of_hearts".to_string()));
+      draw_calls.push(DrawCall::load_texture("six_of_hearts".to_string()));
+      draw_calls.push(DrawCall::load_texture("seven_of_hearts".to_string()));
+      draw_calls.push(DrawCall::load_texture("eight_of_hearts".to_string()));
+      draw_calls.push(DrawCall::load_texture("nine_of_hearts".to_string()));
+      draw_calls.push(DrawCall::load_texture("ten_of_hearts".to_string()));
+      draw_calls.push(DrawCall::load_texture("jack_of_hearts".to_string()));
+      draw_calls.push(DrawCall::load_texture("queen_of_hearts".to_string()));
+      draw_calls.push(DrawCall::load_texture("king_of_hearts".to_string()));
+      draw_calls.push(DrawCall::load_texture("ace_of_hearts".to_string()));
+      
+      // clubs
+      draw_calls.push(DrawCall::load_texture("two_of_clubs".to_string()));
+      draw_calls.push(DrawCall::load_texture("three_of_clubs".to_string()));
+      draw_calls.push(DrawCall::load_texture("four_of_clubs".to_string()));
+      draw_calls.push(DrawCall::load_texture("five_of_clubs".to_string()));
+      draw_calls.push(DrawCall::load_texture("six_of_clubs".to_string()));
+      draw_calls.push(DrawCall::load_texture("seven_of_clubs".to_string()));
+      draw_calls.push(DrawCall::load_texture("eight_of_clubs".to_string()));
+      draw_calls.push(DrawCall::load_texture("nine_of_clubs".to_string()));
+      draw_calls.push(DrawCall::load_texture("ten_of_clubs".to_string()));
+      draw_calls.push(DrawCall::load_texture("jack_of_clubs".to_string()));
+      draw_calls.push(DrawCall::load_texture("queen_of_clubs".to_string()));
+      draw_calls.push(DrawCall::load_texture("king_of_clubs".to_string()));
+      draw_calls.push(DrawCall::load_texture("ace_of_clubs".to_string()));
     }
     
    // draw_calls.push(DrawCall::set_texture_scale(1.0));

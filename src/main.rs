@@ -46,7 +46,7 @@ fn fps_overlay(draw_calls: &mut Vec<DrawCall>, dimensions: Vector2<f32>, fps: f6
 }
 
 fn main() {
-  let mut graphics = CoreMaat::new("AcWars".to_string(), (MAJOR) << 22 | (MINOR) << 12 | (PATCH), 1280.0, 1080.0, true);
+  let mut graphics = CoreMaat::new("ChanceIsMeaningless".to_string(), (MAJOR) << 22 | (MINOR) << 12 | (PATCH), 1280.0, 1080.0, true);
   //graphics.set_icon("./resources/textures/entities/Sun_glasses.png".to_string());
   graphics.preload_font(String::from("Arial"),
                         String::from("./resources/fonts/TimesNewRoman.png"),
@@ -54,10 +54,68 @@ fn main() {
   graphics.preload_texture(String::from("Logo"), 
                            String::from("./resources/textures/Logo.png"));
   
-  // Platform
+  // background
   graphics.add_texture("background".to_string(), "./resources/textures/background.png".to_string());
+
+  // Cards
+  graphics.add_texture("cardback".to_string(), 
+                       "./resources/textures/cards/cardback.jpg".to_string());
   
-  //graphics.create_instance_texture_buffer("Sun".to_string(), "Sun".to_string());
+  // Hearts
+  graphics.add_texture("two_of_hearts".to_string(), 
+                       "./resources/textures/cards/two_of_hearts.png".to_string());
+  graphics.add_texture("three_of_hearts".to_string(), 
+                       "./resources/textures/cards/three_of_hearts.png".to_string());
+  graphics.add_texture("four_of_hearts".to_string(), 
+                       "./resources/textures/cards/four_of_hearts.png".to_string());
+  graphics.add_texture("five_of_hearts".to_string(), 
+                       "./resources/textures/cards/five_of_hearts.png".to_string());
+  graphics.add_texture("six_of_hearts".to_string(), 
+                       "./resources/textures/cards/six_of_hearts.png".to_string());
+  graphics.add_texture("seven_of_hearts".to_string(), 
+                       "./resources/textures/cards/seven_of_hearts.png".to_string());
+  graphics.add_texture("eight_of_hearts".to_string(), 
+                       "./resources/textures/cards/eight_of_hearts.png".to_string());
+  graphics.add_texture("nine_of_hearts".to_string(), 
+                       "./resources/textures/cards/nine_of_hearts.png".to_string());
+  graphics.add_texture("ten_of_hearts".to_string(), 
+                       "./resources/textures/cards/ten_of_hearts.png".to_string());
+  graphics.add_texture("jack_of_hearts".to_string(), 
+                       "./resources/textures/cards/jack_of_hearts.png".to_string());
+  graphics.add_texture("queen_of_hearts".to_string(), 
+                       "./resources/textures/cards/queen_of_hearts.png".to_string());
+  graphics.add_texture("king_of_hearts".to_string(), 
+                       "./resources/textures/cards/king_of_hearts.png".to_string());
+  graphics.add_texture("ace_of_hearts".to_string(), 
+                       "./resources/textures/cards/ace_of_hearts.png".to_string());
+  
+  // Clubs
+  graphics.add_texture("two_of_clubs".to_string(), 
+                       "./resources/textures/cards/two_of_clubs.png".to_string());
+  graphics.add_texture("three_of_clubs".to_string(), 
+                       "./resources/textures/cards/three_of_clubs.png".to_string());
+  graphics.add_texture("four_of_clubs".to_string(), 
+                       "./resources/textures/cards/four_of_clubs.png".to_string());
+  graphics.add_texture("five_of_clubs".to_string(), 
+                       "./resources/textures/cards/five_of_clubs.png".to_string());
+  graphics.add_texture("six_of_clubs".to_string(), 
+                       "./resources/textures/cards/six_of_clubs.png".to_string());
+  graphics.add_texture("seven_of_clubs".to_string(), 
+                       "./resources/textures/cards/seven_of_clubs.png".to_string());
+  graphics.add_texture("eight_of_clubs".to_string(), 
+                       "./resources/textures/cards/eight_of_clubs.png".to_string());
+  graphics.add_texture("nine_of_clubs".to_string(), 
+                       "./resources/textures/cards/nine_of_clubs.png".to_string());
+  graphics.add_texture("ten_of_clubs".to_string(), 
+                       "./resources/textures/cards/ten_of_clubs.png".to_string());
+  graphics.add_texture("jack_of_clubs".to_string(), 
+                       "./resources/textures/cards/jack_of_clubs.png".to_string());
+  graphics.add_texture("queen_of_clubs".to_string(), 
+                       "./resources/textures/cards/queen_of_clubs.png".to_string());
+  graphics.add_texture("king_of_clubs".to_string(), 
+                       "./resources/textures/cards/king_of_clubs.png".to_string());
+  graphics.add_texture("ace_of_clubs".to_string(), 
+                       "./resources/textures/cards/ace_of_clubs.png".to_string());
   
   graphics.load_shaders();
   

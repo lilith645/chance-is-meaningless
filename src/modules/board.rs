@@ -3,8 +3,8 @@ pub use crate::modules::cards::Deck;
 use maat_graphics::cgmath::{Vector2, Vector4};
 use maat_graphics::DrawCall;
 
-const BOARD_HEIGHT: f32 = 20.0;
-const BOARD_WIDTH: f32 = 60.0;
+const BOARD_HEIGHT: f32 = 0.20;
+const BOARD_WIDTH: f32 = 0.60;
 
 pub enum BoardPosition {
   Top,

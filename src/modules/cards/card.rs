@@ -1,6 +1,6 @@
 
 use maat_graphics::DrawCall;
-use maat_graphics::cgmath::Vector2;
+use maat_graphics::cgmath::{Vector2, Vector4};
 
 #[derive(PartialEq, Clone)]
 pub enum CardSuit {
@@ -294,10 +294,14 @@ impl Card {
   }
   
   pub fn draw(&self, x: f32, y: f32, draw_calls: &mut Vec<DrawCall>) {
-    if self.facedown {
-      draw_calls.push(DrawCall::draw_textured(Vector2::new(x, y), Vector2::new(96.0,128.0), 90.0, "backface".to_string()));
+    
+    let mut width = 64.0;
+    let mut height = width*1.605;
+    
+    if !self.facedown {
+      draw_calls.push(DrawCall::draw_textured(Vector2::new(x, y), Vector2::new(width,height), 0.0, "cardback".to_string()));
     } else {
-      draw_calls.push(DrawCall::draw_textured(Vector2::new(x, y), Vector2::new(96.0,128.0), 90.0, self.texture.to_string()));
+      draw_calls.push(DrawCall::draw_textured(Vector2::new(x, y), Vector2::new(width,height), 0.0, self.texture.to_string()));
     }
   }
 }

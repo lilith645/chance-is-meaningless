@@ -55,15 +55,15 @@ impl Scene for PlayScreen {
     draw_calls.push(
         DrawCall::draw_coloured(Vector2::new(width*0.5, height*0.5),
                                 Vector2::new(width*5.0, height*5.0),
-                                Vector4::new(1.0, 1.0, 1.0, 1.0),
+                                Vector4::new(0.8, 0.8, 0.8, 1.0),
                                 0.0)
-    );
+    );/*
     draw_calls.push(
       DrawCall::draw_textured(Vector2::new(width*0.45, height*0.6), 
                               Vector2::new(500.0, 500.0),
                               0.0,
                               String::from("Logo"))
-    );
+    );*/
     
     self.boards[0].draw(width, height, draw_calls);
   }
