@@ -19,6 +19,7 @@ pub enum CardType {
   King
 }
 
+#[derive(Clone)]
 pub struct Card {
   c_suit: CardSuit,
   c_type: CardType,
@@ -293,6 +294,10 @@ impl Card {
   }
   
   pub fn draw(&self, x: f32, y: f32, draw_calls: &mut Vec<DrawCall>) {
-    draw_calls.push(DrawCall::draw_textured(Vector2::new(x, y), Vector2::new(96.0,128.0), 90.0, self.texture.to_string()));
+    if self.facedown {
+      draw_calls.push(DrawCall::draw_textured(Vector2::new(x, y), Vector2::new(96.0,128.0), 90.0, "backface".to_string()));
+    } else {
+      draw_calls.push(DrawCall::draw_textured(Vector2::new(x, y), Vector2::new(96.0,128.0), 90.0, self.texture.to_string()));
+    }
   }
 }

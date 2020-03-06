@@ -1,3 +1,5 @@
+use rand::thread_rng;
+use rand::prelude::*;
 
 use crate::modules::cards::{Card, CardSuit};
 
@@ -18,17 +20,38 @@ impl Deck {
     }
   }
   
-  pub fn new_empty() {
-    
+  pub fn new_empty() -> Deck {
+    Deck {
+      cards: Vec::new(),
+    }
   }
   
-  pub fn shuffle(&mut self) {
-    
+  pub fn add_card_to_bottom(&mut self, card: Card) {
+    self.cards.push(card);
   }
-  /*
-  pub fn take_top(&mut self) -> Card {
+  
+  pub fn add_card_to_top(&mut self, card: Card) {
+    self.cards.insert(0, card);
+  }
+  
+  pub fn shuffle(&mut self, rng: &mut ThreadRng) {
+    for i in 0..self.cards.len() {
+      let j = (rng.gen::<f32>()*i as f32).floor() as usize;
+      let t = self.cards[i].clone();
+      self.cards[i] = self.cards[j].clone();
+      self.cards[j] = t;
+    }
+  }
+  
+  pub fn take_top(&mut self) -> Option<Card> {
+    let mut card = None;
     
-  }*/
+    if self.cards.len() > 0 {
+      card = Some(self.cards.remove(0));
+    }
+    
+    card
+  }
   
   fn generate_suit(suit: CardSuit) -> Vec<Card> {
     let mut cards = Vec::new();
